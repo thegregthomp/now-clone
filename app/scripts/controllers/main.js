@@ -8,11 +8,15 @@ var MainCtrl = function ($scope, socket) {
       'AngularJS',
       'Karma'
     ];
+    $scope.thing = "Fuck";
     socket.on('count', function(data) {
 		//$scope.socketnumber = data.hello;
-		$scope.socketnumber = data.number;
-
-	});
-  };
+  		$scope.socketnumber = data.number;
+  	});
+    socket.on('alert', function(data) {
+    //$scope.socketnumber = data.hello;
+      console.log(data);
+    });
+};
 
 leanMeanApp.controller(controllers);

@@ -18,19 +18,27 @@ app.use(express.logger());
 
 require('./config/routes')(app);
 
-
+//Connection for specific user, functions inside connection relate to individual users...
 io.sockets.on('connection', function (socket) {
-  x=0;
-  
-  socket.emit('news', { hello: 'world' });
-  
-  socket.on('my other event', function (data) {
-    console.log(data);
-  });
-  var socketSend = setInterval(function(){
-  		x = x+1;
+	var x=0;
+	//Disconnection....
+	socket.on('disconnect', function () {
+	});
+
+	//Recieving Data...
+	socket.on('my other event', function (data) { });
+
+
+	var socketSend = setInterval(function(){
+		x = x+1;
+		//Emit data to specific, connected user...
 		socket.emit('count', { number: x });
 	}, 1000);
 
 });
+
+var sendAll = setInterval(function(){
+	//Send message to all users...
+	io.sockets.emit('alert', "Some Message");
+}, 10000)
 
