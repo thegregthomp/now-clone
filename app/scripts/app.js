@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('leanMeanApp', [])
+var leanMeanApp = angular.module('leanMeanApp', [])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
