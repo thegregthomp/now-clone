@@ -18,7 +18,7 @@ Instagram.set('client_id', '9425e6b8836d420091f6d8ae5f121200');
 Instagram.set('client_secret', '8f06292e11d742c2b453d1c5661469df');
 Instagram.set('callback_url', 'http://whispering-everglades-6369.herokuapp.com/subscribe');
 
-
+var list = Instagram.subscriptions.list();
 
 
 app.use(express.static(__dirname + '/app'));
@@ -53,8 +53,10 @@ io.sockets.on('connection', function (socket) {
 
 });
 
-var sendAll = setInterval(function(){
+io.sockets.emit('alert', list);
+
+/*var sendAll = setInterval(function(){
 	//Send message to all users...
 	io.sockets.emit('alert', "Some Message");
-}, 10000)
+}, 10000)*/
 
