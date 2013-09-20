@@ -12,10 +12,16 @@ module.exports = function(app, Instagram, io) {
 			Instagram.subscriptions.handshake(req, res); 
 	});
 	app.post('/subscribe', function(req, res){		
- 			io.sockets.emit('photo', req.body);
-
-			res.writeHead(200);
-			res.end();
+			var body = "";
+			  req.on('data', function (chunk) {
+			    body += chunk;
+			  });
+			  req.on('end', function () {
+			    console.log('POSTed: ' + body);
+			    io.sockets.emit('photo', body);
+			    res.writeHead(200);
+			    res.end();
+			  });
 	});
 	
 }
