@@ -19,6 +19,8 @@ Instagram.set('client_secret', '8f06292e11d742c2b453d1c5661469df');
 Instagram.set('callback_url', 'http://whispering-everglades-6369.herokuapp.com/consume');
 
 
+
+
 app.use(express.static(__dirname + '/app'));
 app.set('views', __dirname + '/ejs/views/');
 app.engine('html', require('ejs').renderFile);

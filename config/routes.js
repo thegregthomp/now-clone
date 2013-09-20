@@ -1,4 +1,4 @@
-module.exports = function(app) {
+module.exports = function(app, Instagram) {
 	app.get('/', function(req, res){
 			res.render('index.ejs', {
 			layout:false,
