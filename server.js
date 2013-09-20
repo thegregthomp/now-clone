@@ -27,12 +27,12 @@ app.engine('html', require('ejs').renderFile);
 
 app.use(express.logger());
 
-Instagram.subscriptions.subscribe({ object: 'tag', object_id: 'blue' });
+Instagram.subscriptions.subscribe({ object: 'tag', object_id: 'fun' });
 
 Instagram.subscriptions.list();
 
 
-require('./config/routes')(app, Instagram);
+require('./config/routes')(app, Instagram, io);
 
 //Connection for specific user, functions inside connection relate to individual users...
 io.sockets.on('connection', function (socket) {

@@ -1,4 +1,4 @@
-module.exports = function(app, Instagram) {
+module.exports = function(app, Instagram, io) {
 	app.get('/', function(req, res){
 			res.render('index.ejs', {
 			layout:false,
@@ -12,7 +12,7 @@ module.exports = function(app, Instagram) {
 			Instagram.subscriptions.handshake(req, res); 
 	});
 	app.post('/subscribe', function(req, res){
-			io.sockets.emit('alert', "Some Message");
+			io.sockets.emit('alert', "PICTURE~");
 	});
 	
 }
