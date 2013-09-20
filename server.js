@@ -37,6 +37,7 @@ require('./config/routes')(app, Instagram, io);
 //Connection for specific user, functions inside connection relate to individual users...
 io.sockets.on('connection', function (socket) {
 	var x=0;
+	io.sockets.emit('alert', list);
 	//Disconnection....
 	socket.on('disconnect', function () {
 	});
@@ -53,7 +54,8 @@ io.sockets.on('connection', function (socket) {
 
 });
 
-io.sockets.emit('alert', list);
+
+
 
 /*var sendAll = setInterval(function(){
 	//Send message to all users...
