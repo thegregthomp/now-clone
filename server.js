@@ -30,11 +30,9 @@ var getPhoto = function (data){
 	io.sockets.emit('photo', data);
 	console.log(data);
 }
-var setSubscription = function(){
-	Instagram.subscriptions.subscribe({ object: 'tag', object_id: 'fun' });
-}
 
-require('./config/routes')(app, Instagram, io, getPhoto, setSubscription);
+
+require('./config/routes')(app, Instagram, io, getPhoto);
 
 
 //Connection for specific user, functions inside connection relate to individual users...

@@ -1,4 +1,4 @@
-module.exports = function(app, Instagram, io, getPhoto, setSubscription) {
+module.exports = function(app, Instagram, io, getPhoto) {
 	app.get('/', function(req, res){
 			res.render('index.ejs', {
 			layout:false,
@@ -9,7 +9,6 @@ module.exports = function(app, Instagram, io, getPhoto, setSubscription) {
 			});
 	});
 	app.get('/subscribe', function(req, res){
-			setSubscription();
 			Instagram.subscriptions.handshake(req, res); 
 	});
 	app.post('/subscribe', function(req, res){		
@@ -24,6 +23,9 @@ module.exports = function(app, Instagram, io, getPhoto, setSubscription) {
 			    res.writeHead(200);
 			    res.end();
 			  });
+	});
+	app.get('/set_sub', function(req, res){
+			Instagram.subscriptions.subscribe({ object: 'tag', object_id: 'fun' });
 	});
 	
 }
