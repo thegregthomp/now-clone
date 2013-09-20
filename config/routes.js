@@ -18,7 +18,8 @@ module.exports = function(app, Instagram, io, getPhoto) {
 			  });
 			  req.on('end', function () {
 			    console.log('POSTed: ' + body);
-			    getPhoto(body);
+
+			    getPhoto(body.object_id);
 			    res.writeHead(200);
 			    res.end();
 			  });
