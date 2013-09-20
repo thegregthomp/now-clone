@@ -16,7 +16,7 @@ io.configure(function () {
 
 Instagram.set('client_id', '9425e6b8836d420091f6d8ae5f121200');
 Instagram.set('client_secret', '8f06292e11d742c2b453d1c5661469df');
-Instagram.set('callback_url', 'http://whispering-everglades-6369.herokuapp.com/consume');
+Instagram.set('callback_url', 'http://whispering-everglades-6369.herokuapp.com/subscribe');
 
 
 
@@ -27,7 +27,10 @@ app.engine('html', require('ejs').renderFile);
 
 app.use(express.logger());
 
-require('./config/routes')(app);
+Instagram.subscriptions.subscribe({ object: 'tag', object_id: 'blue' });
+
+
+require('./config/routes')(app, Instagram);
 
 //Connection for specific user, functions inside connection relate to individual users...
 io.sockets.on('connection', function (socket) {
