@@ -11,8 +11,7 @@ module.exports = function(app, Instagram, io) {
 	app.get('/subscribe', function(req, res){
 			Instagram.subscriptions.handshake(req, res); 
 	});
-	app.post('/subscribe', function(req, res){
- 			
+	app.post('/subscribe', function(req, res){		
  			io.sockets.emit('photo', "STUFF");
 
 			res.writeHead(200);
