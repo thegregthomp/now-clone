@@ -29,6 +29,8 @@ app.use(express.logger());
 
 Instagram.subscriptions.subscribe({ object: 'tag', object_id: 'blue' });
 
+Instagram.subscriptions.list();
+
 
 require('./config/routes')(app, Instagram);
 
