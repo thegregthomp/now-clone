@@ -12,13 +12,11 @@ module.exports = function(app, Instagram, io, getPhoto) {
 			Instagram.subscriptions.handshake(req, res); 
 	});
 	app.post('/subscribe', function(req, res){		
-			var body = "";
+			  var body = "";
 			  req.on('data', function (chunk) {
 			    body += chunk;
 			  });
 			  req.on('end', function () {
-			 
-			    body = JSON.parse(body);
 			    getPhoto(body);
 			    res.writeHead(200);
 			    res.end();
