@@ -24,21 +24,23 @@ app.engine('html', require('ejs').renderFile);
 
 app.use(express.logger());
 
-
-
 var getPhoto = function (data){
 	data = JSON.parse(data);
 	data = data[0];
 	data= data.object_id;
+	
+	Instagram.tags.recent({
+	  name: data,
+	  complete: function(data){
+	    io.sockets.emit('photo', data);
+	});
 	//io.sockets.emit('photo', data);
-	var resp = Instagram.tags.recent({ name: data });
-	io.sockets.emit('photo', resp);
+	//var resp = Instagram.tags.recent({ name: data });
+	//io.sockets.emit('photo', resp);
 }
 
 
 require('./config/routes')(app, Instagram, io, getPhoto);
-
-
 //Connection for specific user, functions inside connection relate to individual users...
 io.sockets.on('connection', function (socket) {
 	var x=0;
@@ -50,21 +52,6 @@ io.sockets.on('connection', function (socket) {
 	socket.on('my other event', function (data) { });
 
 
-	/*var socketSend = setInterval(function(){
-		x = x+1;
-		//Emit data to specific, connected user...
-		socket.emit('count', { number: x });
-	}, 1000);*/
-
 });
 
-
-
-
-
-
-/*var sendAll = setInterval(function(){
-	//Send message to all users...
-	io.sockets.emit('alert', "Some Message");
-}, 10000)*/
 
