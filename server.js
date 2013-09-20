@@ -24,7 +24,7 @@ app.engine('html', require('ejs').renderFile);
 
 app.use(express.logger());
 
-Instagram.subscriptions.subscribe({ object: 'tag', object_id: 'fun' });
+Instagram.subscriptions.subscribe({ object: 'tag', object_id: 'awesome' });
 
 require('./config/routes')(app, Instagram, io);
 
