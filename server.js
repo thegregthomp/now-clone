@@ -28,7 +28,7 @@ Instagram.subscriptions.subscribe({ object: 'tag', object_id: 'neat' });
 
 
 var getPhoto = function (data){
-	io.sockets.emit('photo', data.object_id);
+	io.sockets.emit('photo', data[0].object_id);
 }
 
 
