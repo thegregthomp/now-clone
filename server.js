@@ -30,7 +30,7 @@ var getPhoto = function (data){
 	data = JSON.parse(data);
 	data = data[0];
 	io.sockets.emit('photo', data);
-	console.log(data);
+	console.log(data.object_id);
 }
 
 
