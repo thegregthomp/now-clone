@@ -12,12 +12,7 @@ module.exports = function(app, Instagram, io) {
 			Instagram.subscriptions.handshake(req, res); 
 	});
 	app.post('/subscribe', function(req, res){
-			//io.sockets.emit('alert', "PICTURE~");
-			req.body.forEach(function(data){
-			     io.sockets.emit('photo', raw);
-			     io.sockets.emit('alert', "PICTURE~kk");
-			  });
-
+			io.sockets.emit('alert', req);
 	});
 	
 }
