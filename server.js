@@ -8,6 +8,10 @@ var port = process.env.PORT || 3000;
 var server = app.listen(port);
 var io = require('socket.io').listen(server);
 
+io.configure(function () { 
+  io.set("transports", ["xhr-polling"]); 
+  io.set("polling duration", 10); 
+});
 
 
 app.use(express.static(__dirname + '/app'));
