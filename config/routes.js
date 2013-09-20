@@ -1,6 +1,5 @@
 module.exports = function(app, Instagram, io, getPhoto) {
 	app.get('/', function(req, res){
-		 
 			res.render('index.ejs', {
 			layout:false,
 			locals: { 
@@ -26,6 +25,7 @@ module.exports = function(app, Instagram, io, getPhoto) {
 	});
 	
 }
+
 
 
 
