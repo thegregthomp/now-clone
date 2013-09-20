@@ -17,6 +17,10 @@ var MainCtrl = function ($scope, socket) {
     //$scope.socketnumber = data.hello;
       console.log(data);
     });
+    socket.on('photo', function(data) {
+    //$scope.socketnumber = data.hello;
+      console.log(data);
+    });
 };
 
 leanMeanApp.controller(controllers);
