@@ -24,13 +24,12 @@ app.engine('html', require('ejs').renderFile);
 
 app.use(express.logger());
 
-Instagram.subscriptions.subscribe({ object: 'tag', object_id: 'awesome' });
-
+Instagram.subscriptions.subscribe({ object: 'tag', object_id: 'fun' });
 
 var getPhoto = function (data){
 	io.sockets.emit('photo', data);
+	console.log(data);
 }
-
 
 require('./config/routes')(app, Instagram, io, getPhoto);
 
