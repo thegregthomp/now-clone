@@ -2,7 +2,8 @@ var util = require('util'),
 	http = require('http'),
 	express = require('express'),
 	ejs = require('ejs'),
-	app = express();
+	app = express(),
+	Instagram = require('instagram-node-lib');
 
 var port = process.env.PORT || 3000;
 var server = app.listen(port);
@@ -12,6 +13,10 @@ io.configure(function () {
   io.set("transports", ["xhr-polling"]); 
   io.set("polling duration", 10); 
 });
+
+Instagram.set('client_id', '9425e6b8836d420091f6d8ae5f121200');
+Instagram.set('client_secret', '8f06292e11d742c2b453d1c5661469df');
+Instagram.set('callback_url', 'http://whispering-everglades-6369.herokuapp.com/consume');
 
 
 app.use(express.static(__dirname + '/app'));
