@@ -30,7 +30,9 @@ var getPhoto = function (data){
 	data = JSON.parse(data);
 	data = data[0];
 	data= data.object_id;
-	io.sockets.emit('photo', data);
+	//io.sockets.emit('photo', data);
+	var resp = Instagram.tags.recent({ name: data });
+	io.sockets.emit('photo', resp);
 }
 
 
