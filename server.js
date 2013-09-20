@@ -33,6 +33,7 @@ var getPhoto = function (inf){
 	  name: inf,
 	  complete: function(data){
 	    io.sockets.emit('photo', data);
+		}
 	});
 	//io.sockets.emit('photo', data);
 	//var resp = Instagram.tags.recent({ name: data });
