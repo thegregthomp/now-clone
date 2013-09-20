@@ -26,7 +26,13 @@ app.use(express.logger());
 
 Instagram.subscriptions.subscribe({ object: 'tag', object_id: 'neat' });
 
-require('./config/routes')(app, Instagram, io);
+
+var getPhoto = function (data){
+	io.sockets.emit('photo', data.object_id);
+}
+
+
+require('./config/routes')(app, Instagram, io, getPhoto);
 
 //Connection for specific user, functions inside connection relate to individual users...
 io.sockets.on('connection', function (socket) {
@@ -46,6 +52,8 @@ io.sockets.on('connection', function (socket) {
 	}, 1000);*/
 
 });
+
+
 
 
 

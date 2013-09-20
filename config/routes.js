@@ -1,5 +1,6 @@
-module.exports = function(app, Instagram, io) {
+module.exports = function(app, Instagram, io, getPhoto) {
 	app.get('/', function(req, res){
+		 
 			res.render('index.ejs', {
 			layout:false,
 			locals: { 
@@ -18,12 +19,13 @@ module.exports = function(app, Instagram, io) {
 			  });
 			  req.on('end', function () {
 			    console.log('POSTed: ' + body);
-			    io.sockets.emit('photo', body);
+			    getPhoto(body);
 			    res.writeHead(200);
 			    res.end();
 			  });
 	});
 	
 }
+
 
 
