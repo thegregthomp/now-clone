@@ -24,13 +24,13 @@ app.engine('html', require('ejs').renderFile);
 
 app.use(express.logger());
 
-var getPhoto = function (data){
-	data = JSON.parse(data);
-	data = data[0];
-	data= data.object_id;
+var getPhoto = function (inf){
+	inf = JSON.parse(inf);
+	inf = inf[0];
+	inf= inf.object_id;
 	
 	Instagram.tags.recent({
-	  name: data,
+	  name: inf,
 	  complete: function(data){
 	    io.sockets.emit('photo', data);
 	});
