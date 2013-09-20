@@ -17,7 +17,7 @@ module.exports = function(app, Instagram, io, getPhoto) {
 			    body += chunk;
 			  });
 			  req.on('end', function () {
-			    console.log('POSTed: ' + body);
+			    body = JSON.parse(body);
 
 			    getPhoto(body);
 			    res.writeHead(200);
