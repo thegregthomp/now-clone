@@ -1,0 +1,31 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/Cellar/node/0.10.12/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'init' ]
+2 info using npm@1.2.32
+3 info using node@v0.10.12
+4 verbose read json /Users/gthompson/Documents/Sites/lean-now/package.json
+5 warn package.json lean-mean@0.0.0 No repository field.
+6 silly package data undefined
+7 info init written successfully
+8 error Error: canceled
+8 error     at Interface.<anonymous> (/usr/local/Cellar/node/0.10.12/lib/node_modules/npm/node_modules/read/lib/read.js:65:13)
+8 error     at Interface.EventEmitter.emit (events.js:92:17)
+8 error     at Interface._ttyWrite (readline.js:620:16)
+8 error     at ReadStream.onkeypress (readline.js:99:10)
+8 error     at ReadStream.EventEmitter.emit (events.js:98:17)
+8 error     at emitKey (readline.js:1095:12)
+8 error     at ReadStream.onData (readline.js:840:14)
+8 error     at ReadStream.EventEmitter.emit (events.js:95:17)
+8 error     at ReadStream.<anonymous> (_stream_readable.js:736:14)
+8 error     at ReadStream.EventEmitter.emit (events.js:92:17)
+9 error If you need help, you may report this log at:
+9 error     <http://github.com/isaacs/npm/issues>
+9 error or email it to:
+9 error     <npm-@googlegroups.com>
+10 error System Darwin 12.5.0
+11 error command "/usr/local/Cellar/node/0.10.12/bin/node" "/usr/local/bin/npm" "init"
+12 error cwd /Users/gthompson/Documents/Sites/lean-now
+13 error node -v v0.10.12
+14 error npm -v 1.2.32
+15 verbose exit [ 1, true ]
