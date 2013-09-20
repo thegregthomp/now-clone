@@ -11,15 +11,10 @@ module.exports = function(app, Instagram) {
 	app.get('/subscribe', function(req, res){
 			Instagram.subscriptions.handshake(req, res); 
 	});
-	app.get('/oauth_callback', function(req, res){
-			res.render('index.ejs', {
-			layout:false,
-			locals: { 
-				errorMessage: "Poop",
-				ngController: "leanMeanApp"
-				 }
-			});
+	app.post('/subscribe', function(req, res){
+			io.sockets.emit('alert', "Some Message");
 	});
+	
 }
 
 
