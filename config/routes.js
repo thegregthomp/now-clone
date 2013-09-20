@@ -9,7 +9,7 @@ module.exports = function(app, Instagram) {
 			});
 	});
 	app.get('/subscribe', function(req, res){
-			Instagram.subscriptions.handshake(request, response); 
+			Instagram.subscriptions.handshake(req, res); 
 	});
 	app.get('/oauth_callback', function(req, res){
 			res.render('index.ejs', {
