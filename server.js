@@ -39,11 +39,11 @@ io.sockets.on('connection', function (socket) {
 	socket.on('my other event', function (data) { });
 
 
-	var socketSend = setInterval(function(){
+	/*var socketSend = setInterval(function(){
 		x = x+1;
 		//Emit data to specific, connected user...
 		socket.emit('count', { number: x });
-	}, 1000);
+	}, 1000);*/
 
 });
 
