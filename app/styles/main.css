@@ -5,8 +5,8 @@ body {
 }
 
 .hero-unit {
-    margin: 50px auto 0 auto;
-    width: 300px;
+    margin: 50px 0 0 0;
+    width: 100%;
     font-size: 18px;
     font-weight: 200;
     line-height: 30px;
@@ -15,8 +15,10 @@ body {
     padding: 60px;
 }
 
-.hero-unit h1 {
-    font-size: 60px;
-    line-height: 1;
-    letter-spacing: -1px;
+.hero-unit img {
+    width:100px;
+    height:100px;
+    display:block;
+    float:left;
+    margin:10px;
 }
