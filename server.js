@@ -38,7 +38,7 @@ var getPhoto = function (inf){
 		  		io.sockets.emit('photo', "//=====DATA====//");
 		  		//io.sockets.emit('photo', data[0]);
 		  		data.forEach(function(photo){
-		  			io.sockets.emit('photo', photo);
+		  			io.sockets.emit('photo', photo.images.low_resolution);
 		  		});
 		  	}
 		}
