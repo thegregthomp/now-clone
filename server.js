@@ -28,8 +28,7 @@ app.use(express.logger());
 var getPhoto = function (inf){
 	inf = JSON.parse(inf);
 	prt = inf[0];
-	io.sockets.emit('alert', inf);
-	
+	io.sockets.emit('alert', prt.object_id);	
 	Instagram.geographies.recent({
 	  location_id: prt.object_id,
 	  complete: function(data){
@@ -37,6 +36,7 @@ var getPhoto = function (inf){
 		  	}else{
 		  		io.sockets.emit('alert', "//=====DATA====//");
 		  		data.forEach(function(photo){
+		  			io.sockets.emit('alert', "//=====DATA====//");
 		  			io.sockets.emit('photo', photo.images.low_resolution.url);
 		  		});
 		  	}
