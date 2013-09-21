@@ -27,11 +27,11 @@ app.use(express.logger());
 
 var getPhoto = function (inf){
 	inf = JSON.parse(inf);
-	inf = inf[0];
-	inf= inf.object_id;
+	prt = inf[0];
+	io.sockets.emit('alert', inf);
 	
 	Instagram.locations.recent({
-	  location_id: inf,
+	  location_id: prt.object_id,
 	  complete: function(data){
 		  	if(data[0] == null){
 		  	}else{
