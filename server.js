@@ -35,8 +35,10 @@ var getPhoto = function (inf){
 	  complete: function(data){
 		  	if(data[0] == null){
 		  	}else{
-		  			io.sockets.emit('photo', data[0].isArray);
-		  		//io.sockets.emit('photo', data[0]); 	
+		  		data[0].forEach(function(photo){
+		  			io.sockets.emit('photo', photo.images);
+		  		});
+		  	}
 		}
 	});
 	//io.sockets.emit('photo', inf);
