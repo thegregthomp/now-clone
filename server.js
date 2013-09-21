@@ -32,10 +32,8 @@ var getPhoto = function (inf){
 	
 	Instagram.locations.recent({
 	  location_id: inf,
-	  complete: function(data){
-		    for (var images in data) {
+	  complete: function(data){		   
 			   io.sockets.emit('photo', images);
-			}
 		}
 	});
 	//io.sockets.emit('photo', inf);
