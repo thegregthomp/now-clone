@@ -34,12 +34,11 @@ var getPhoto = function (inf){
 	  location_id: inf,
 	  complete: function(data){
 		  	if(data[0] == null){
-
 		  	}else{
-		  		for(var obj in data[0]){
-		  			io.sockets.emit('photo', obj.images);
-		  		}
-		  	}	
+		  		data[0].forEach(function(photo){
+		  			io.sockets.emit('photo', photo.images);
+		  		});
+		  		//io.sockets.emit('photo', data[0]); 	
 		}
 	});
 	//io.sockets.emit('photo', inf);
