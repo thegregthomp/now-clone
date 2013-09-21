@@ -28,10 +28,11 @@ module.exports = function(app, Instagram, io, getPhoto) {
 			res.end();
 	});
 	app.get('/poop', function(req, res){
-			var poop = Instagram.tags.recent({ name: 'fun' });
+			Instagram.subscriptions.unsubscribe_all();
 			res.writeHead(200);
 			res.end();
 	});
+	
 	
 	
 }
