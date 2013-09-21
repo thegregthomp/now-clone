@@ -34,10 +34,8 @@ var getPhoto = function (inf){
 		  	if(data[0] == null){
 		  	}else{
 		  		io.sockets.emit('alert', "//=====DATA====//");
-		  		data.forEach(function(photo){
 		  			//io.sockets.emit('alert', "//=====DATA====//");
-		  			io.sockets.emit('photo', photo.images.low_resolution.url);
-		  		});
+		  			io.sockets.emit('photo', data[0].images.low_resolution.url);
 		  	}
 		}
 	});
