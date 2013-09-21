@@ -27,16 +27,15 @@ app.use(express.logger());
 
 var getPhoto = function (inf){
 	inf = JSON.parse(inf);
-	prt = inf[0];
-	io.sockets.emit('alert', prt.object_id);	
+	prt = inf[0];	
 	Instagram.geographies.recent({
-	  location_id: prt.object_id,
+	  geography_id: prt.object_id,
 	  complete: function(data){
 		  	if(data[0] == null){
 		  	}else{
 		  		io.sockets.emit('alert', "//=====DATA====//");
 		  		data.forEach(function(photo){
-		  			io.sockets.emit('alert', "//=====DATA====//");
+		  			//io.sockets.emit('alert', "//=====DATA====//");
 		  			io.sockets.emit('photo', photo.images.low_resolution.url);
 		  		});
 		  	}
