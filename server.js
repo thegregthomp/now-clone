@@ -14,6 +14,7 @@ io.configure(function () {
   io.set("polling duration", 10); 
 });
 
+
 Instagram.set('client_id', '9425e6b8836d420091f6d8ae5f121200');
 Instagram.set('client_secret', '8f06292e11d742c2b453d1c5661469df');
 Instagram.set('callback_url', 'http://whispering-everglades-6369.herokuapp.com/subscribe');
@@ -26,16 +27,16 @@ app.use(express.logger());
 
 var getPhoto = function (inf){
 	inf = JSON.parse(inf);
-	//inf = inf[0];
-	//inf= inf.object_id;
+	inf = inf[0];
+	inf= inf.object_id;
 	
-	/*Instagram.tags.recent({
-	  name: inf,
+	Instagram.locations.recent({
+	  location_id:: inf,
 	  complete: function(data){
 	    io.sockets.emit('photo', data);
 		}
-	});*/
-	io.sockets.emit('photo', inf);
+	});
+	//io.sockets.emit('photo', inf);
 	//var resp = Instagram.tags.recent({ name: data });
 	//io.sockets.emit('photo', resp);
 }
