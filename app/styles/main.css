@@ -2,15 +2,12 @@ body {
     background: #fafafa;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #333;
-}
-
-.hero-unit {
+    background-color:#111;
 }
 
 .hero-unit img {
-    width:100px;
-    height:100px;
+    width:150px;
+    height:150px;
     display:block;
     float:left;
-    margin:10px;
 }
