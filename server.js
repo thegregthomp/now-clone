@@ -26,8 +26,8 @@ app.use(express.logger());
 
 var getPhoto = function (inf){
 	inf = JSON.parse(inf);
-	inf = inf[0];
-	inf= inf.object_id;
+	//inf = inf[0];
+	//inf= inf.object_id;
 	
 	/*Instagram.tags.recent({
 	  name: inf,
