@@ -34,7 +34,7 @@ var getPhoto = function (inf){
 	  location_id: inf,
 	  complete: function(data){
 		    for (var images in data) {
-			   io.sockets.emit('photo', images.images.low_resolution);
+			   io.sockets.emit('photo', images);
 			}
 		}
 	});
