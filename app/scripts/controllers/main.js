@@ -17,8 +17,8 @@ var MainCtrl = function ($scope, socket) {
       console.log(data);
     });
     socket.on('photo', function(data) {
+      $( ".hero-unit" ).prepend( "<img src = '"+data+"'/>" );
     //$scope.socketnumber = data.hello;
-      console.log(data);
     });
 };
 
