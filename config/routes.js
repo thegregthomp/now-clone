@@ -25,6 +25,11 @@ module.exports = function(app, Instagram, io, getPhoto) {
 	app.get('/set_sub', function(req, res){
 			//Instagram.subscriptions.subscribe({ object: 'tag', object_id: 'fun' });
 			Instagram.media.subscribe({ lat: 39.952565, lng: -75.165428, radius: 5000 });
+			Instagram.media.subscribe({ lat: 40.043829, lng: -75.060028, radius: 5000 });
+			Instagram.media.subscribe({ lat: 40.103203, lng: -74.999946, radius: 5000 });
+			Instagram.media.subscribe({ lat: 39.904649, lng: -75.210060, radius: 5000 });
+			Instagram.media.subscribe({ lat: 39.964933, lng: -75.227226, radius: 5000 });
+			40.043829
 			res.writeHead(200);
 			res.end();
 	});

@@ -29,13 +29,13 @@ var getPhoto = function (inf){
 	inf = inf[0];
 	inf= inf.object_id;
 	
-	Instagram.tags.recent({
+	/*Instagram.tags.recent({
 	  name: inf,
 	  complete: function(data){
 	    io.sockets.emit('photo', data);
 		}
-	});
-	//io.sockets.emit('photo', data);
+	});*/
+	io.sockets.emit('photo', inf);
 	//var resp = Instagram.tags.recent({ name: data });
 	//io.sockets.emit('photo', resp);
 }
