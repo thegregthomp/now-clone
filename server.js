@@ -37,7 +37,7 @@ var getPhoto = function (inf){
 
 		  	}else{
 		  		for(var obj in data[0]){
-		  			io.sockets.emit('photo', obj);
+		  			io.sockets.emit('photo', obj.images);
 		  		}
 		  	}	
 		}
