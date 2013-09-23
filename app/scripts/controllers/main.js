@@ -3,8 +3,8 @@
 var controllers = {};
 
 var MainCtrl = function ($scope, socket) {
-
-  $('.holder').packery();
+  var init = 0;
+  var $holder = $('.holder');
 
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
@@ -20,6 +20,10 @@ var MainCtrl = function ($scope, socket) {
       console.log(data);
     });
     socket.on('photo', function(data) {
+      init++;
+      if(init == 1){
+        $holder.packery();
+      }
      // $( ".holder" ).prepend( "<img src = '"+data+"'/>" );
      var element = "<img src = '"+data+"'/>";
     $('.holder').prepended(element);
