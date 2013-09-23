@@ -26,22 +26,10 @@ var MainCtrl = function ($scope, socket) {
     });
     socket.on('photo', function(data) {
     var elements = "<img src = '"+data+"' class = 'item'/>";
-    $container.packery( 'appended', elements )
+    $container.packery( 'appended', elements );
     //$('.holder').prepended(element);
     //$scope.socketnumber = data.hello;
     });
-};
-
-var PoopCtrl = function ($scope, socket) {
-   var $container = $('#holder');
-    $scope.$on('$viewContentLoaded', function() {
-      $( function() {
-        $container.packery();
-      });
-      
-    });
-
-
 };
 
 leanMeanApp.controller(controllers);
