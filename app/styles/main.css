@@ -11,3 +11,40 @@ body {
     display:block;
     float:left;
 }
+.holder{
+    position:relative;
+}
+#time{
+    width:450px;
+    position:absolute;
+    height:110px;
+    background-color:#222;
+    color:#fff;
+    padding:20px 0;
+}
+#date{
+	width:560px;
+	float:left;
+	display:block;
+	margin-left:40px;
+	font-size:22px;
+	line-height:22px;
+}
+#now{
+	width:560px;
+	float:left;
+	display:block;
+	margin-left:40px;
+	color:#228DFF;
+	font-weight:bold;
+	font-size:60px;
+	line-height:63px;
+}
+#loc{
+	width:560px;
+	float:left;
+	display:block;
+	margin-left:40px;
+	font-size:22px;
+	line-height:22px;
+}
