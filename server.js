@@ -48,10 +48,15 @@ function getInit(){
 	Instagram.geographies.recent({
 	  geography_id: 4249092,
 	  complete: function(data){
+
 		  	if(data[0] == null){
+
 		  	}else{
+
 		  		data.forEach(function (pic) {
 		  			io.sockets.emit('photo', pic.images.low_resolution.url);
+		  		});
+
 		  	}
 		}
 	});
