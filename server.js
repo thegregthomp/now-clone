@@ -34,12 +34,10 @@ var getPhoto = function (inf){
 		  	if(data[0] == null){
 		  	}else{
 		  		var piece = {};
-		  		io.sockets.emit('alert', data);
-		  		io.sockets.emit('alert', prt.object_id);
-		  			//io.sockets.emit('alert', "//=====DATA====//");
 		  		piece.img = data[0].images.low_resolution.url;
-		  		piece.link = data[0].link;
-		  			io.sockets.emit('photo', piece);
+		  		piece.url = data[0].url;
+		  		io.sockets.emit('alert', prt.object_id);
+		  		io.sockets.emit('photo', piece);
 		  	}
 		}
 	});
@@ -57,7 +55,11 @@ function getInit(){
 		  	}else{
 
 		  		data.forEach(function (pic) {
-		  			io.sockets.emit('photo', pic.images.low_resolution.url);
+		  			var piece = {};
+			  		piece.img = pic.images.low_resolution.url;
+			  		piece.url = pic.url;
+			  		io.sockets.emit('alert', prt.object_id);
+			  		io.sockets.emit('photo', piece);
 		  		});
 
 		  	}
