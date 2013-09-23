@@ -3,6 +3,9 @@
 var controllers = {};
 
 var MainCtrl = function ($scope, socket) {
+
+  $('.holder').packery();
+
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -17,7 +20,9 @@ var MainCtrl = function ($scope, socket) {
       console.log(data);
     });
     socket.on('photo', function(data) {
-      $( ".holder" ).prepend( "<img src = '"+data+"'/>" );
+     // $( ".holder" ).prepend( "<img src = '"+data+"'/>" );
+     var element = "<img src = '"+data+"'/>";
+    $('.holder').prepended(element);
     //$scope.socketnumber = data.hello;
     });
 };
