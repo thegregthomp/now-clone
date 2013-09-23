@@ -27,7 +27,7 @@ var MainCtrl = function ($scope, socket) {
     socket.on('photo', function(data) {
    
     var elements = "<img src = '"+data+"' class = 'item'/>";
-    $ex7.append( elements ).packery( 'appended', elements );
+    $container.append( elements ).packery( 'appended', elements );
     //$container.packery( 'appended', img );
 
     //$('.holder').prepended(element);
