@@ -8,8 +8,7 @@ var MainCtrl = function ($scope, socket) {
   $scope.$on('$viewContentLoaded', function() {
     $( function() {
       $container.packery();
-      )};
-    
+    });
   });
 
     $scope.awesomeThings = [
@@ -34,10 +33,15 @@ var MainCtrl = function ($scope, socket) {
 };
 
 var PoopCtrl = function ($scope, socket) {
-  var $holder = $('.holder');
+   var $container = $('#holder');
+    $scope.$on('$viewContentLoaded', function() {
+      $( function() {
+        $container.packery();
+      });
+      
+    });
 
 
-
-}
+};
 
 leanMeanApp.controller(controllers);
