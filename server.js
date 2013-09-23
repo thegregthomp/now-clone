@@ -46,8 +46,11 @@ var getPhoto = function (inf){
 	//io.sockets.emit('photo', resp);
 }
 function getInit(){
+
+	
+	
 	Instagram.geographies.recent({
-	  geography_id: 4251653,
+	  geography_id: 4251649,
 	  complete: function(data){
 		  	if(data[0] == null){
 
@@ -56,12 +59,12 @@ function getInit(){
 		  			var piece = {};
 			  		piece.img = pic.images.low_resolution.url;
 			  		piece.url = pic.link;
-
-			  		io.sockets.emit('alert', prt.object_id);
+			  		io.sockets.emit('alert', piece.url);
 			  		io.sockets.emit('photo', piece);
 		  		});
 
 		  	}
+		  	io.sockets.emit('alert', "init Fired");
 		}
 	});
 }
@@ -70,7 +73,7 @@ function getInit(){
 require('./config/routes')(app, Instagram, io, getPhoto, getInit);
 //Connection for specific user, functions inside connection relate to individual users...
 io.sockets.on('connection', function (socket) {
-	var x=0;
+	io.sockets.emit('alert', "connected");
 	getInit();
 	//Disconnection....
 	socket.on('disconnect', function () {
