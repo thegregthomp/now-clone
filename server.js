@@ -33,10 +33,13 @@ var getPhoto = function (inf){
 	  complete: function(data){
 		  	if(data[0] == null){
 		  	}else{
+		  		var piece = {};
 		  		io.sockets.emit('alert', data);
 		  		io.sockets.emit('alert', prt.object_id);
 		  			//io.sockets.emit('alert', "//=====DATA====//");
-		  			io.sockets.emit('photo', data[0].images.low_resolution.url);
+		  		piece.img = data[0].images.low_resolution.url;
+		  		piece.link = data[0].link;
+		  			io.sockets.emit('photo', piece);
 		  	}
 		}
 	});
