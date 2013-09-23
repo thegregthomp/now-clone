@@ -43,8 +43,7 @@ var getPhoto = function (inf){
 	//var resp = Instagram.tags.recent({ name: data });
 	//io.sockets.emit('photo', resp);
 }
-
-function getInit(){
+var init = setTimeout(function(){
 	Instagram.geographies.recent({
 	  geography_id: 4249092,
 	  complete: function(data){
@@ -60,7 +59,9 @@ function getInit(){
 		  	}
 		}
 	});
-}
+	
+}, 2000)
+
 
 
 require('./config/routes')(app, Instagram, io, getPhoto, getInit);
