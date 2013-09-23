@@ -52,12 +52,10 @@ function getInit(){
 		  	if(data[0] == null){
 
 		  	}else{
-		  			io.sockets.emit('alert', "//=====DATA====//");
-		  			//io.sockets.emit('alert', "//=====DATA====//");
-		  			io.sockets.emit('photo', data[0].images.low_resolution.url);
-		  		//data.forEach(function (pic) {
-		  			//io.sockets.emit('photo', pic.images.low_resolution.url);
-		  		//});
+
+		  		data.forEach(function (pic) {
+		  			io.sockets.emit('photo', pic.images.low_resolution.url);
+		  		});
 
 		  	}
 		}
