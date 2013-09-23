@@ -29,7 +29,7 @@ var MainCtrl = function ($scope, socket) {
     });
     socket.on('photo', function(data) {
    
-    var items = "<a href = '"+data.link+"'target = '_blank'><img src = '"+data.img+"' class = 'item'/></a>";
+    var items = "<a href = '"+data.url+"'target = '_blank'><img src = '"+data.img+"' class = 'item'/></a>";
     var $items = $( items );
     $container.prepend( $items ).packery( 'prepended', $items );
     //$container.packery( 'appended', img );

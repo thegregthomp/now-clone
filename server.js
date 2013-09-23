@@ -49,11 +49,9 @@ function getInit(){
 	Instagram.geographies.recent({
 	  geography_id: 4251653,
 	  complete: function(data){
-
 		  	if(data[0] == null){
 
 		  	}else{
-
 		  		data.forEach(function (pic) {
 		  			var piece = {};
 			  		piece.img = pic.images.low_resolution.url;
