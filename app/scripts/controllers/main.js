@@ -4,10 +4,12 @@ var controllers = {};
 
 var MainCtrl = function ($scope, socket) {
   var init = 0;
-
+  var $container = $('#holder');
   $scope.$on('$viewContentLoaded', function() {
-    var $container = $('#holder');
-    $container.packery();
+    $( function() {
+      $container.packery();
+      )};
+    
   });
 
     $scope.awesomeThings = [
