@@ -43,7 +43,7 @@ var getPhoto = function (inf){
 	//var resp = Instagram.tags.recent({ name: data });
 	//io.sockets.emit('photo', resp);
 }
-var init = setTimeout(function(){
+function getInit(){
 	Instagram.geographies.recent({
 	  geography_id: 4249092,
 	  complete: function(data){
@@ -59,15 +59,14 @@ var init = setTimeout(function(){
 		  	}
 		}
 	});
-	
-}, 2000)
-
+}
 
 
 require('./config/routes')(app, Instagram, io, getPhoto, getInit);
 //Connection for specific user, functions inside connection relate to individual users...
 io.sockets.on('connection', function (socket) {
 	var x=0;
+	getInit();
 	//Disconnection....
 	socket.on('disconnect', function () {
 	});
