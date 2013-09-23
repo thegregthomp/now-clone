@@ -5,8 +5,10 @@ var controllers = {};
 var MainCtrl = function ($scope, socket) {
   var init = 0;
 
-  var $container = $('#holder');
-  $container.packery();
+  $scope.$on('$viewContentLoaded', function() {
+    var $container = $('#holder');
+    $container.packery();
+  });
 
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
