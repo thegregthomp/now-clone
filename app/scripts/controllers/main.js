@@ -8,7 +8,6 @@ var MainCtrl = function ($scope, socket) {
   $scope.$on('$viewContentLoaded', function() {
     $( function() {
       $container.packery();
-      $container.packery( 'appended', '<img src = "http://placehold.it/150x150">' );
     });
   });
 
@@ -28,7 +27,7 @@ var MainCtrl = function ($scope, socket) {
     socket.on('photo', function(data) {
    
     var elements = "<img src = '"+data+"' class = 'item'/>";
-    $container.prepend(elements);
+    $ex7.append( elements ).packery( 'appended', elements );
     //$container.packery( 'appended', img );
 
     //$('.holder').prepended(element);
