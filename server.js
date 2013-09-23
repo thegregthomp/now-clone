@@ -44,8 +44,21 @@ var getPhoto = function (inf){
 	//io.sockets.emit('photo', resp);
 }
 
+function getInit(){
+	Instagram.geographies.recent({
+	  geography_id: 4249092,
+	  complete: function(data){
+		  	if(data[0] == null){
+		  	}else{
+		  		data.forEach(function (pic) {
+		  			io.sockets.emit('photo', pic.images.low_resolution.url);
+		  	}
+		}
+	});
+}
 
-require('./config/routes')(app, Instagram, io, getPhoto);
+
+require('./config/routes')(app, Instagram, io, getPhoto, getInit);
 //Connection for specific user, functions inside connection relate to individual users...
 io.sockets.on('connection', function (socket) {
 	var x=0;

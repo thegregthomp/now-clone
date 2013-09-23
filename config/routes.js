@@ -1,4 +1,4 @@
-module.exports = function(app, Instagram, io, getPhoto) {
+module.exports = function(app, Instagram, io, getPhoto, getInit) {
 	app.get('/', function(req, res){
 			res.render('index.ejs', {
 			layout:false,
@@ -6,7 +6,7 @@ module.exports = function(app, Instagram, io, getPhoto) {
 				errorMessage: "Poop",
 				ngController: "leanMeanApp"
 				 }
-			});
+			},getInit());
 	});
 	app.get('/subscribe', function(req, res){
 			Instagram.subscriptions.handshake(req, res); 
