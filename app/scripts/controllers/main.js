@@ -28,7 +28,7 @@ var MainCtrl = function ($scope, socket) {
    
     var items = "<img src = '"+data+"' class = 'item'/>";
     var $items = $( items );
-    $container.append( $items ).packery( 'appended', $items );
+    $container.prepend( $items ).packery( 'prepended', $items );
     //$container.packery( 'appended', img );
 
     //$('.holder').prepended(element);
