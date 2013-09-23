@@ -31,4 +31,11 @@ var MainCtrl = function ($scope, socket) {
     });
 };
 
+var PoopCtrl = function ($scope, socket) {
+  var $holder = $('.holder');
+  
+
+
+}
+
 leanMeanApp.controller(controllers);

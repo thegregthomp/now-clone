@@ -40,6 +40,15 @@ module.exports = function(app, Instagram, io, getPhoto) {
 			res.end();
 	});
 
+	app.get('/poop', function(req, res){
+			res.render('poop.ejs', {
+			layout:false,
+			locals: { 
+				errorMessage: "Poop",
+				ngController: "leanMeanApp"
+				 }
+			});
+	});
 	
 	
 }
