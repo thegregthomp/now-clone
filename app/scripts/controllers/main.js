@@ -26,9 +26,9 @@ var MainCtrl = function ($scope, socket) {
     });
     socket.on('photo', function(data) {
    
-    //var elements = "<img src = '"+data+"' class = 'item'/>";
-    var img = data;
-    $container.packery( 'appended', img );
+    var elements = "<img src = '"+data+"' class = 'item'/>";
+    $container.prepend(elements);
+    //$container.packery( 'appended', img );
 
     //$('.holder').prepended(element);
     //$scope.socketnumber = data.hello;
