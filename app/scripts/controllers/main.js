@@ -4,8 +4,7 @@ var controllers = {};
 
 var MainCtrl = function ($scope, socket) {
   var init = 0;
-  var $container = $('#holder');
-// initialize
+
   var $container = $('#holder');
   $container.packery();
 
@@ -23,8 +22,8 @@ var MainCtrl = function ($scope, socket) {
       console.log(data);
     });
     socket.on('photo', function(data) {
-    var element = "<img src = '"+data+"' class = 'item'/>";
-    $container.prepend( element ).packery( 'prepended', element );
+    var elements = "<img src = '"+data+"' class = 'item'/>";
+    $container.packery( 'appended', elements )
     //$('.holder').prepended(element);
     //$scope.socketnumber = data.hello;
     });
