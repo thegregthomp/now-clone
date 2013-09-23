@@ -7,7 +7,7 @@ var MainCtrl = function ($scope, socket) {
   var $container = $('#holder');
   $scope.$on('$viewContentLoaded', function() {
     $( function() {
-      //$container.packery();
+      $container.packery();
     });
   });
 
@@ -28,8 +28,11 @@ var MainCtrl = function ($scope, socket) {
    
     var items = "<img src = '"+data+"' class = 'item'/>";
     var $items = $( items );
-    $container.prepend( $items ).fadeIn('slow');
-    //$container.prepend( $items ).packery( 'prepended', $items );
+    $container.prepend( $items ).packery( 'prepended', $items );
+    //$container.packery( 'appended', img );
+
+    //$('.holder').prepended(element);
+    //$scope.socketnumber = data.hello;
     });
 };
 
