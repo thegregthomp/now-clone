@@ -55,7 +55,8 @@ function getInit(){
 		  		data.forEach(function (pic) {
 		  			var piece = {};
 			  		piece.img = pic.images.low_resolution.url;
-			  		piece.url = pic.url;
+			  		piece.url = pic.link;
+
 			  		io.sockets.emit('alert', prt.object_id);
 			  		io.sockets.emit('photo', piece);
 		  		});
