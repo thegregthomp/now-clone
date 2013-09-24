@@ -6,15 +6,15 @@ DEMO: <a href = "http://whispering-everglades-6369.herokuapp.com/#/">http://whis
 This repo is a clone/proof of concept of the very popular <a href="http://now.jit.su/" target="_blank">This is Now</a> live instagram feed sites. The goal was to create a simple to follow, light-weight version of what the Now project accomplished. This repo is well documented. It is built on my <a href="https://github.com/thegregthomp/lean-mean" target="_blank">MEAN Stack</a> But if you're not familiar with this stack it should be fairly easy to pick up (given node experience).
 
 Setup is fairly simple:
-<ul>
-	<ol>Clone the Package</ol>
-	<ol>Setup your Instagram App/client</ol>
-	<ol>Fill in information in server.js</ol>
-	<ol>Setup your subscriptions in the /config/routes.js file. You can setup subscriptions for tags, geographies etc</ol>
-	<ol>Deploy to server (Heroku, Nodejitsu etc.)</ol>
-	<ol>Hit the subscription link, /set_sub, to create subscriptions (ONLY HIT IT ONE TIME, COMMENT OUT AFTER)</ol>
-	<ol>App is ready to go. Set your intial pull specs in the server.js file under getInit()</ol>
-</ul>
+<ol>
+	<li>Clone the Package</li>
+	<li>Setup your Instagram App/client</li>
+	<li>Fill in information in server.js</li>
+	<li>Setup your subscriptions in the /config/routes.js file. You can setup subscriptions for tags, geographies etc</li>
+	<li>Deploy to server (Heroku, Nodejitsu etc.)</li>
+	<li>Hit the subscription link, /set_sub, to create subscriptions (ONLY HIT IT ONE TIME, COMMENT OUT AFTER)</li>
+	<li>App is ready to go. Set your intial pull specs in the server.js file under getInit()</li>
+</ol>
 
 <em><strong>Notes:</strong> for instagram to validate your app you must be on a public facing server. This means you can not develop and test locally unless you build a Instagram simulator. Also, <strong>My demonstration and these files are for a subscripton/setup for Philadelphia geological area. This can be changed to other areas, used to get tags etc.</strong> Lastly, if you want it to really look like This is Now, there's a few things you can do to spruce up the front end, just didn't think it was necessary for this demo.</em>
 
