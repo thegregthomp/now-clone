@@ -9,7 +9,8 @@
     "underscore": "latest",
     "async": "latest",
     "mongoose": "latest",
-    "connect-mongo": "latest"
+    "connect-mongo": "latest",
+    "instagram-node-lib":"latest"
   },
   "engines": {
     "node": "0.10.x",

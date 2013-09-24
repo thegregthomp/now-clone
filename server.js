@@ -19,9 +19,9 @@ io.configure(function () {
 
 
 //Our private instagram data, Create an App with Instagram Developers to get this info....
-Instagram.set('client_id', '9425e6b8836d420091f6d8ae5f121200');
-Instagram.set('client_secret', '8f06292e11d742c2b453d1c5661469df');
-Instagram.set('callback_url', 'http://whispering-everglades-6369.herokuapp.com/subscribe');
+Instagram.set('client_id', '');
+Instagram.set('client_secret', '');
+Instagram.set('callback_url', '');
 
 //Express template rendering...
 app.use(express.static(__dirname + '/app'));
