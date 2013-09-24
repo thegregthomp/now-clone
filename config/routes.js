@@ -1,9 +1,12 @@
+//This is our Express routes file. In this file we define two routes for subscribe. 
+//Each route has a GET and POST reciever. The get reciever does the handshake with 
+//Instagram to verify the app. The post handles new alerts sent from the real time subscription
+
 module.exports = function(app, Instagram, io, getPhoto, getInit) {
 	app.get('/', function(req, res){
 			res.render('index.ejs', {
 			layout:false,
 			locals: { 
-				errorMessage: "Poop",
 				ngController: "leanMeanApp"
 				 }
 			});
@@ -22,8 +25,17 @@ module.exports = function(app, Instagram, io, getPhoto, getInit) {
 			    res.end();
 			  });
 	});
+
+//This route sets our subscriptions. Be careful not to hit the url more than once or you might get duplicate subscriptions.
+//My list covers many different areas of philadelphia. Try not to overlap regions
+//*****************TO CANCEL SUBSCRIPTION*****************************
+//To cancel subscriptions... use 
+//curl -X DELETE https://api.instagram.com/v1/subscriptions\?client_secret\={CLIENT_SECRET}\&object\={SUBSCRIPTION_TYPE}\&client_id\={CLIENT_ID}
+
 	app.get('/set_sub', function(req, res){
+			//Example of a tag subscription
 			//Instagram.subscriptions.subscribe({ object: 'tag', object_id: 'fun' });
+			
 			Instagram.media.subscribe({ lat: 39.95251688800991, lng: -75.1638650894165, radius: 2000 });
 			Instagram.media.subscribe({ lat: 39.98198706407352, lng: -75.1374721527099, radius: 2000 });
 			Instagram.media.subscribe({ lat: 39.984880771193204, lng: -75.18467903137201, radius: 2000 });
@@ -50,29 +62,10 @@ module.exports = function(app, Instagram, io, getPhoto, getInit) {
 			Instagram.media.subscribe({ lat: 40.03786653670635, lng: -75.14571189880365, radius: 806 });
 			Instagram.media.subscribe({ lat: 40.005396269436076, lng: -75.12528419494623, radius: 806 });
 			Instagram.media.subscribe({ lat: 39.88708457772929, lng: -75.23180007934565, radius: 2.130});
-
-			40.043829
-			res.writeHead(200);
-			res.end();
-	});
-	app.get('/cancel_sub', function(req, res){
-			//curl -X DELETE https://api.instagram.com/v1/subscriptions\?client_secret\=8f06292e11d742c2b453d1c5661469df\&object\=tag\&client_id\=9425e6b8836d420091f6d8ae5f121200
-			//Instagram.subscriptions.unsubscribe_all();
 			res.writeHead(200);
 			res.end();
 	});
 
-	app.get('/poop', function(req, res){
-			res.render('poop.ejs', {
-			layout:false,
-			locals: { 
-				errorMessage: "Poop",
-				ngController: "leanMeanApp"
-				 }
-			});
-	});
-	
-	
 }
 
 

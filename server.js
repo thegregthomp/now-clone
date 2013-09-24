@@ -1,3 +1,4 @@
+//OUR requirements for our node server
 var util = require('util'),
 	http = require('http'),
 	express = require('express'),
@@ -5,26 +6,32 @@ var util = require('util'),
 	app = express(),
 	Instagram = require('instagram-node-lib');
 
+//Listen on port 3000
 var port = process.env.PORT || 3000;
 var server = app.listen(port);
 var io = require('socket.io').listen(server);
 
+//This is required to work on Heroku; it defaults to long polling; actual web-sockets not supported
 io.configure(function () { 
   io.set("transports", ["xhr-polling"]); 
   io.set("polling duration", 10); 
 });
 
 
+//Our private instagram data, Create an App with Instagram Developers to get this info....
 Instagram.set('client_id', '9425e6b8836d420091f6d8ae5f121200');
 Instagram.set('client_secret', '8f06292e11d742c2b453d1c5661469df');
 Instagram.set('callback_url', 'http://whispering-everglades-6369.herokuapp.com/subscribe');
 
+//Express template rendering...
 app.use(express.static(__dirname + '/app'));
 app.set('views', __dirname + '/ejs/views/');
 app.engine('html', require('ejs').renderFile);
 
 app.use(express.logger());
 
+//Our function to handle the photo's from the subscription information 
+//we recieve. We only pull the latest [0] photo from the group of data
 var getPhoto = function (inf){
 	inf = JSON.parse(inf);
 	prt = inf[0];	
@@ -41,19 +48,14 @@ var getPhoto = function (inf){
 		  	}
 		}
 	});
-	//io.sockets.emit('photo', inf);
-	//var resp = Instagram.tags.recent({ name: data });
-	//io.sockets.emit('photo', resp);
 }
-function getInit(){
 
-	
-	
+//Get init sets our first set of images so the page doesn't load blank. it pulls from my specified location.
+function getInit(){
 	Instagram.geographies.recent({
 	  geography_id: 4251649,
 	  complete: function(data){
 		  	if(data[0] == null){
-
 		  	}else{
 		  		data.forEach(function (pic) {
 		  			var piece = {};
@@ -62,18 +64,17 @@ function getInit(){
 			  		io.sockets.emit('alert', piece.url);
 			  		io.sockets.emit('photo', piece);
 		  		});
-
 		  	}
 		  	io.sockets.emit('alert', "init Fired");
 		}
 	});
 }
 
-
 require('./config/routes')(app, Instagram, io, getPhoto, getInit);
 //Connection for specific user, functions inside connection relate to individual users...
 io.sockets.on('connection', function (socket) {
 	io.sockets.emit('alert', "connected");
+	//Fire getInit for each new connection
 	getInit();
 	//Disconnection....
 	socket.on('disconnect', function () {

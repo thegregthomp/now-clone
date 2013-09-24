@@ -1,8 +1,8 @@
+//This factory is strictly for handling SOCKET.IO interfacing, no need to touch it.
+
 'use strict';
 
  var factories = {};
-var controllers = {};
-var directives = {};
 
 factories.SimpleFactory = function(){
         var factory = {};

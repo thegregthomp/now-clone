@@ -3,50 +3,43 @@
 var controllers = {};
 
 var MainCtrl = function ($scope, socket) {
-  var init = 0;
+  //Define our container for new images
   var $container = $('#holder');
+  
+  //Similar to a jquery ready function, when the view is loaded we set the timezone for moment.js plugin and set both the date and time
   $scope.$on('$viewContentLoaded', function() {
-    $( function() {
-      $container.packery();
-    });
-     setTimeZone();
+    setTimeZone();
     $scope.now = moment().tz("America/New_York").format('h:mm:ss a');
     $scope.date = moment().tz("America/New_York").format('MMMM Do YYYY');
   });
 
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-    $scope.thing = "Fuck";
-    socket.on('count', function(data) {
-		//$scope.socketnumber = data.hello;
-  		$scope.socketnumber = data.number;
-  	});
-    socket.on('alert', function(data) {
-      console.log(data);
-    });
-    socket.on('photo', function(data) {
-   
+  //userful function for Socket.IO to log alerts in the browser console.
+  socket.on('alert', function(data) {
+    console.log(data);
+  });
+  
+  //recieving and handling photo data from node.js backend.
+  socket.on('photo', function(data) {
     var items = "<a href = '"+data.url+"'target = '_blank'><img src = '"+data.img+"' class = 'item'/></a>";
     var $items = $( items );
-    $container.prepend( $items ).packery( 'prepended', $items );
-    //$container.packery( 'appended', img );
-
-    //$('.holder').prepended(element);
-    //$scope.socketnumber = data.hello;
+    //prepending items to the container. 
+    $container.prepend( $items );
+  });
+  
+  //Set interval used to update time.
+  setInterval(function(){
+    $scope.$apply(function() {
+       $scope.now = moment().tz("America/New_York").format('h:mm:ss a');
+      $scope.date = moment().tz("America/New_York").format('MMMM Do YYYY');
     });
-     setInterval(function(){
-      $scope.$apply(function() {
-         $scope.now = moment().tz("America/New_York").format('h:mm:ss a');
-        $scope.date = moment().tz("America/New_York").format('MMMM Do YYYY');
-      });
   }, 1000);
 };
 
+//Register our controllers
 leanMeanApp.controller(controllers);
 
+
+//Function to set and register timezone (EST)
 function setTimeZone(){
   moment.tz.add({
     "zones": {
